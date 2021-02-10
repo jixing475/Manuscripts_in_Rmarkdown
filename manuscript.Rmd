@@ -22,6 +22,35 @@ csl: evolution.csl
 subtitle: A demonstration of Rmarkdown using Herman Bumpus' data
 bibliography: refs.bib
 ---
+
+
+```{r setup, echo=FALSE, cache=FALSE, include=FALSE}
+library(knitr)
+library(rmdformats)
+
+library(tidyverse)
+library(reticulate)
+# reticulate::py_config()
+
+knitr::opts_knit$set(root.dir = usethis::proj_path())
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+```
+
+
+
+
+
+
     
 Abstract
 ===============================================================================
@@ -115,5 +144,7 @@ An example table is shown below, which includes all of the variables collected b
 
 ```{r, echo = FALSE}
 library(knitr);
-kable(x = dat[1:10,], caption = "First ten rows of the original data set collected by Hermon Bumpus");
+kable(x = dat[1:10,], caption = "First ten rows of the original data set collected by Hermon Bumpus")
 ```
+
+
